@@ -1,0 +1,152 @@
+import UIKit
+
+var rect = CGRect(x: 0, y: 0, width: 1200, height: 600)
+let view = UIView(frame: rect)
+
+// draw blue background
+var blueColor: CGColor = UIColor(red: 0, green: 56/255, blue: 168/255, alpha: 1).cgColor
+var pointList: [CGPoint] = [CGPoint(x: 1200, y: 0), CGPoint(x: 1200, y: 300), CGPoint(x: 0, y: 300)]
+drawPolygon(move: CGPoint(x: 0, y: 0), pointList: pointList, color: blueColor)
+
+view
+
+
+// draw red background
+var redColor: CGColor = UIColor(red: 206/255, green: 17/255, blue: 38/255, alpha: 1).cgColor
+pointList = [CGPoint(x: 1200, y: 300), CGPoint(x: 1200, y: 600), CGPoint(x: 0, y: 600)]
+drawPolygon(move: CGPoint(x: 0, y: 300), pointList: pointList, color: redColor)
+
+view
+
+// draw white background
+pointList = [CGPoint(x: 520, y: 300), CGPoint(x: 0, y: 600)]
+drawPolygon(move: CGPoint(x: 0, y: 0), pointList: pointList, color: UIColor.white.cgColor)
+
+view
+
+var yellowColor: CGColor = UIColor(red: 252/255, green: 209/255, blue: 22/255, alpha: 1).cgColor
+// draw star (上)
+pointList = [CGPoint(x: 35, y: 75), CGPoint(x: 30, y: 50), CGPoint(x: 50, y: 68), CGPoint(x: 70, y: 55),CGPoint(x: 60, y: 80), CGPoint(x: 75, y: 95), CGPoint(x: 54, y: 93), CGPoint(x: 43, y: 114), CGPoint(x: 38, y: 92)]
+drawPolygon(move: CGPoint(x: 15, y: 85), pointList: pointList, color: yellowColor)
+
+// draw star (下)
+pointList = [CGPoint(x: 38, y: 510), CGPoint(x: 43, y: 485), CGPoint(x: 53, y: 508), CGPoint(x: 75, y: 505),CGPoint(x: 60, y: 520), CGPoint(x: 70, y: 545), CGPoint(x: 50, y: 533), CGPoint(x: 30, y: 548), CGPoint(x: 35, y: 525)]
+drawPolygon(move: CGPoint(x: 15, y: 513), pointList: pointList, color: yellowColor)
+
+// draw star (右)
+pointList = [CGPoint(x: 420, y: 290), CGPoint(x: 435, y: 270), CGPoint(x: 438, y: 292), CGPoint(x: 460, y: 300), CGPoint(x: 438, y: 308), CGPoint(x: 435, y: 330), CGPoint(x: 423, y: 312), CGPoint(x: 400, y: 318), CGPoint(x: 413, y: 300)]
+drawPolygon(move: CGPoint(x: 400, y: 280), pointList: pointList, color: yellowColor)
+
+view
+
+
+
+let yellowCirclePath = UIBezierPath(ovalIn: CGRect(x: 125, y: 240, width: 120, height: 120))
+let yellowCircleBackground = CAShapeLayer()
+yellowCircleBackground.path = yellowCirclePath.cgPath
+yellowCircleBackground.fillColor = yellowColor
+view.layer.addSublayer(yellowCircleBackground)
+
+view
+
+
+// draw polygon (五邊，上)
+pointList = [CGPoint(x: 178, y: 180), CGPoint(x: 185, y: 175), CGPoint(x: 195, y: 180), CGPoint(x: 190, y: 240)]
+drawPolygon(move: CGPoint(x: 182, y: 240), pointList: pointList, color: yellowColor)
+
+// draw polygon (五邊，下)
+pointList = [CGPoint(x: 178, y: 418), CGPoint(x: 186, y: 425), CGPoint(x: 195, y: 418), CGPoint(x: 190, y: 360)]
+drawPolygon(move: CGPoint(x: 182, y: 360), pointList: pointList, color: yellowColor)
+
+// draw polygon (五邊，左)
+pointList = [CGPoint(x: 68, y: 293), CGPoint(x: 60, y: 300), CGPoint(x: 68, y: 308), CGPoint(x: 128, y: 304)]
+drawPolygon(move: CGPoint(x: 128, y: 298), pointList: pointList, color: yellowColor)
+
+// draw polygon (五邊，右)
+pointList = [CGPoint(x: 305, y: 293), CGPoint(x: 315, y: 300), CGPoint(x: 305, y: 308), CGPoint(x: 245, y: 304)]
+drawPolygon(move: CGPoint(x: 245, y: 298), pointList: pointList, color: yellowColor)
+
+// draw polygon (五邊，左上)
+pointList = [CGPoint(x: 98, y: 222), CGPoint(x: 98, y: 212), CGPoint(x: 108, y: 212), CGPoint(x: 148, y: 255)]
+drawPolygon(move: CGPoint(x: 142, y: 261), pointList: pointList, color: yellowColor)
+
+// draw polygon (五邊，左下)
+pointList = [CGPoint(x: 98, y: 380), CGPoint(x: 98, y: 390), CGPoint(x: 108, y: 390), CGPoint(x: 148, y: 345)]
+drawPolygon(move: CGPoint(x: 142, y: 340), pointList: pointList, color: yellowColor)
+
+// draw polygon (五邊，右上)
+pointList = [CGPoint(x: 265, y: 212), CGPoint(x: 275, y: 212), CGPoint(x: 275, y: 222), CGPoint(x: 232, y: 265)]
+drawPolygon(move: CGPoint(x: 227, y: 256), pointList: pointList, color: yellowColor)
+
+// draw polygon (五邊，右下)
+pointList = [CGPoint(x: 275, y: 380), CGPoint(x: 275, y: 390), CGPoint(x: 265, y: 390), CGPoint(x: 225, y: 345)]
+drawPolygon(move: CGPoint(x: 230, y: 340), pointList: pointList, color: yellowColor)
+
+view
+
+// draw polygon (四邊，上)
+pointList = [CGPoint(x: 166, y: 195), CGPoint(x: 172, y: 188), CGPoint(x: 179, y: 240)]
+drawPolygon(move: CGPoint(x: 175, y: 243), pointList: pointList, color: yellowColor)
+pointList = [CGPoint(x: 201, y: 188), CGPoint(x: 208, y: 195), CGPoint(x: 200, y: 242)]
+drawPolygon(move: CGPoint(x: 194, y: 240), pointList: pointList, color: yellowColor)
+
+// draw polygon (四邊，下)
+pointList = [CGPoint(x: 165, y: 405), CGPoint(x: 172, y: 410), CGPoint(x: 180, y: 360)]
+drawPolygon(move: CGPoint(x: 175, y: 358), pointList: pointList, color: yellowColor)
+pointList = [CGPoint(x: 202, y: 410), CGPoint(x: 208, y: 405), CGPoint(x: 200, y: 358)]
+drawPolygon(move: CGPoint(x: 194, y: 358), pointList: pointList, color: yellowColor)
+
+// draw polygon (四邊，左)
+pointList = [CGPoint(x: 80, y: 278), CGPoint(x: 75, y: 285), CGPoint(x: 128, y: 293)]
+drawPolygon(move: CGPoint(x: 128, y: 290), pointList: pointList, color: yellowColor)
+pointList = [CGPoint(x: 75, y: 315), CGPoint(x: 80, y: 322), CGPoint(x: 128, y: 313)]
+drawPolygon(move: CGPoint(x: 128, y: 310), pointList: pointList, color: yellowColor)
+
+// draw polygon (四邊，右)
+pointList = [CGPoint(x: 295, y: 278), CGPoint(x: 300, y: 285), CGPoint(x: 242, y: 293)]
+drawPolygon(move: CGPoint(x: 242, y: 290), pointList: pointList, color: yellowColor)
+pointList = [CGPoint(x: 300, y: 315), CGPoint(x: 294, y: 322), CGPoint(x: 242, y: 310)]
+drawPolygon(move: CGPoint(x: 242, y: 308), pointList: pointList, color: yellowColor)
+
+// draw polygon (四邊、左上)
+pointList = [CGPoint(x: 98, y: 240), CGPoint(x: 98, y: 230), CGPoint(x: 140, y: 265)]
+drawPolygon(move: CGPoint(x: 136, y: 268), pointList: pointList, color: yellowColor)
+pointList = [CGPoint(x: 118, y: 212), CGPoint(x: 128, y: 212), CGPoint(x: 154, y: 250)]
+drawPolygon(move: CGPoint(x: 150, y: 253), pointList: pointList, color: yellowColor)
+
+// draw polygon (四邊、右上)
+pointList = [CGPoint(x: 245, y: 212), CGPoint(x: 255, y: 212), CGPoint(x: 224, y: 255)]
+drawPolygon(move: CGPoint(x: 220, y: 252), pointList: pointList, color: yellowColor)
+pointList = [CGPoint(x: 275, y: 230), CGPoint(x: 275, y: 240), CGPoint(x: 238, y: 270)]
+drawPolygon(move: CGPoint(x: 235, y: 268), pointList: pointList, color: yellowColor)
+
+
+// draw polygon (四邊、左下)
+pointList = [CGPoint(x: 98, y: 360), CGPoint(x: 98, y: 370), CGPoint(x: 140, y: 337)]
+drawPolygon(move: CGPoint(x: 136, y: 334), pointList: pointList, color: yellowColor)
+pointList = [CGPoint(x: 118, y: 390), CGPoint(x: 128, y: 390), CGPoint(x: 154, y: 350)]
+drawPolygon(move: CGPoint(x: 150, y: 348), pointList: pointList, color: yellowColor)
+
+
+// draw polygon (四邊、右下)
+pointList = [CGPoint(x: 245, y: 390), CGPoint(x: 255, y: 390), CGPoint(x: 224, y: 348)]
+drawPolygon(move: CGPoint(x: 220, y: 350), pointList: pointList, color: yellowColor)
+pointList = [CGPoint(x: 275, y: 360), CGPoint(x: 275, y: 370), CGPoint(x: 232, y: 338)]
+drawPolygon(move: CGPoint(x: 235, y: 335), pointList: pointList,color: yellowColor)
+
+view
+
+
+func drawPolygon(move: CGPoint, pointList: [CGPoint], color: CGColor) {
+    let form = UIBezierPath()
+    form.move(to: move)
+    for point in pointList {
+        form.addLine(to: point)
+    }
+    form.close()
+
+    let formLayer = CAShapeLayer()
+    formLayer.path = form.cgPath
+    formLayer.fillColor = color
+    view.layer.addSublayer(formLayer)
+}
